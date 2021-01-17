@@ -86,6 +86,7 @@
                     <equals arg1="${ant.java.version}" arg2="12"/>
                     <equals arg1="${ant.java.version}" arg2="13"/>
                     <equals arg1="${ant.java.version}" arg2="14"/>
+                    <equals arg1="${ant.java.version}" arg2="15"/>
                 </or>
             </not>
         </condition>
