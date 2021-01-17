@@ -221,6 +221,7 @@
     <property name="macosppc"     value="false" /> 
     <property name="macosx64"     value="true" /> 
     <property name="macosx32"     value="false" /> <!-- we disable 32bit on OSX for good now -->
+    <property name="macosarm64"   value="true" />
 
     <!-- Need a way to be able to disable the macosx64 property specification in a build.xml -->
     <condition property="use.macosppc">
@@ -235,6 +236,12 @@
     <condition property="use.macosx64">
      <and>
       <istrue value="${macosx64}" />
+      <os family="mac"/>
+     </and>
+    </condition>
+    <condition property="use.macosarm64">
+     <and>
+      <istrue value="${macosarm64}" />
       <os family="mac"/>
      </and>
     </condition>
@@ -866,6 +873,7 @@
     <echo message="OS X PPC=${use.macosppc}" />
     <echo message="OS X x32=${use.macosx32}" />
     <echo message="OS X x64=${use.macosx64}" />
+    <echo message="OS X arm64=${use.macosarm64}" />
     <echo message="iOS=${isIOS}" />
     <echo message="iOSAmd64=${isIOSAmd64}" />
     <echo message="iOSArm64=${isIOSArm64}" />
@@ -1229,6 +1237,8 @@
       <compilerarg value="i386" if="use.macosx32"/>
       <compilerarg value="-arch" if="use.macosx64"/>
       <compilerarg value="x86_64" if="use.macosx64"/>
+      <compilerarg value="-arch" if="use.macosarm64"/>
+      <compilerarg value="arm64" if="use.macosarm64"/>
       <!-- Note: Apple doesn't seem to provide ppc64 binaries on Leopard -->
       <compilerarg value="-Wmost" />
       <compilerarg value="-ObjC" />
@@ -1465,6 +1475,8 @@
       <linkerarg value="i386" if="use.macosx32"/>
       <linkerarg value="-arch" if="use.macosx64"/>
       <linkerarg value="x86_64" if="use.macosx64"/>
+      <linkerarg value="-arch" if="use.macosarm64"/>
+      <linkerarg value="arm64" if="use.macosarm64"/>
       <linkerarg value="-mmacosx-version-min=10.5"/>
       <linkerarg value="-static-libgcc" if="isGCC"/>
       <linkerarg value="-static-libstdc++" if="isGCC"/>
