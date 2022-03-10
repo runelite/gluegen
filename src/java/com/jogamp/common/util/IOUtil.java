@@ -990,7 +990,7 @@ public class IOUtil {
             if(DEBUG) {
                 System.err.println("IOUtil.testDirExec: <"+dir.getAbsolutePath()+">: Disabled TestTempDirExec");
             }
-            return false;
+            return true;
         }
         if (!testFile(dir, true, true)) {
             if( debug ) {
