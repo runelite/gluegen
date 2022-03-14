@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="GlueGen-cpptasks-winx86" basedir=".">
+
+	<!-- Set OS and ARCH for crosscompilation compiler configuration -->
+	<target name="gluegen.cpptasks.detect.os.custom">
+		<property name="gluegen.cpptasks.detected.os" value="true"/>
+		<property name="isWindows" value="true"/>
+		<property name="isWindowsX86" value="true"/>
+		<property name="isI386" value="true"/>
+		<property name="isAMD64" value="false"/>
+		<property name="isMingW32" value="true"/>
+		<property name="isCrosscompilation" value="true"/>
+		<property name="java.includes.dir" value="${java.home}/include"/>
+		<property name="java.includes.dir.platform" value="${java.home}/include/win32"/>
+		<property name="java.lib.dir.platform" value="${java.home}/lib"/>
+		<echo message="gluegen.cpptasks.detect.os.custom: GLUEGEN_CPPTASKS_FILE 'gluegen-cpptasks-winx86' done"/>
+	</target>
+
+	<import file="${gluegen.root.abs-path}/make/gluegen-cpptasks-base.xml" optional="false"/>
+</project>
