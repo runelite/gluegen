@@ -1242,7 +1242,7 @@
       <!-- Note: Apple doesn't seem to provide ppc64 binaries on Leopard -->
       <compilerarg value="-Wmost" />
       <compilerarg value="-ObjC" />
-      <compilerarg value="-mmacosx-version-min=10.5"/>
+      <compilerarg value="-mmacosx-version-min=10.7"/>
       <!-- sysincludepath path="${macosx.sdkroot}" if="macosx.sdkroot"/ -->
       <defineset>
         <define name="_DEBUG"   if="c.compiler.use-debug"/>
@@ -1477,7 +1477,7 @@
       <linkerarg value="x86_64" if="use.macosx64"/>
       <linkerarg value="-arch" if="use.macosarm64"/>
       <linkerarg value="arm64" if="use.macosarm64"/>
-      <linkerarg value="-mmacosx-version-min=10.5"/>
+      <linkerarg value="-mmacosx-version-min=10.7"/>
       <linkerarg value="-static-libgcc" if="isGCC"/>
       <linkerarg value="-static-libstdc++" if="isGCC"/>
     </linker>
